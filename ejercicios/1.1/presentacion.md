@@ -51,6 +51,6 @@ Fabricar $$20 unidades$$ del producto A y $$0 u$$ del producto B.
 Para ello se deberá adquirir $$60m^2/mes$$ de alcohol y $$20tn/mes$$ de ciclohexano
 
 ### Resolución por software:
-![Figura 2](1_1_mod.png)
+![Figura 2](mod.png)
 
-![Figura 3](1_1_sol.png)
+![Figura 3](sol.png)
