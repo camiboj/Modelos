@@ -1,24 +1,22 @@
 ### Enunciado provisto 
 
-Debido a las recurrentes quejas de los votantes por las distancias que deben recorrer desde sus domicilios hasta los lugares de votación, la Dirección Nacional Electoral desea rever la forma en que se asignan los ciudadanos a las mesas de votación. Se realizará una prueba piloto en un circuito electoral de la Ciudad de Buenos Aires.
+_Debido a las recurrentes quejas de los votantes por las distancias que deben recorrer desde sus domicilios hasta los lugares de votación, la Dirección Nacional Electoral desea rever la forma en que se asignan los ciudadanos a las mesas de votación. Se realizará una prueba piloto en un circuito electoral de la Ciudad de Buenos Aires._
 
 ### Análisis de la situación problemática
 
 Se debe tomar como principal prioridad realizar un modelo que reduzca la distancia que deben recorrer los votantes hasta los centros de votación. Por otro lado, como se menciona la asignación de mesas se debe tener en cuenta también la organización de las mesas dentro de cada centro. A modo de simplificación el modelo se limitará a asignar votantes a los centros de votación ya que se considera que la división de votantes en mesas dentro de cada centro es trivial.
 
-El enfoque a seguir asigna votantes a centros de votación y no centros de votación a votantes, es decir, a cada centro se le asignan n votantes (siendo n la disponibilidad máxima del centro) más cercanos a él. De esta forma se asegura que cada votante se asigne al centro más cercano si es que el mismo no llenó su cupo con votantes aún más cercanos al mismo.
+El enfoque a seguir asigna votantes a centros de votación y no centros de votación a votantes, es decir, a cada centro se le asignan los `n` votantes (siendo `n` la disponibilidad máxima del centro) más cercanos a él. De esta forma se asegura que cada votante se asigne al centro más cercano si es que el mismo no llenó su cupo con votantes aún más cercanos al mismo.
 
 Al realizarse la prueba piloto sobre un circuito electoral no se considerarán los demás circuitos electorales y no se tendrá en cuenta la forma de división de los mismos.
 
 El tipo de problema detectado es de asignación ya que consiste en encontrar la forma de asignar ciertos recursos disponibles (votantes) para la realización de determinadas tareas al menor costo, siendo el costo la distancia recorrida por cada votante al centro de votación. Se supone que cada recurso se destina a una sola tarea, es decir, cada votante vota en un solo centro de votación una única vez. Se puede pensar en forma gráfica como un grafo bipartito, expuesto en la _Figura 1_, en el que los puntos rojos serían los votantes y los azules los centros de votación.
 
-![Grafo bipartito del problema de asignación](grafo.jpg)
+![Grafo bipartito del problema de asignación](grafo.jpg){ width=300px }
 
 ### Objetivo
 
-Determinar la cantidad de centros de votación y la cantidad de mesas a abrir de manera de minimizar la distancia de los centros de votación al votante más lejano durante la prueba piloto a realizar en un circuito electoral.
-
-Debe coincidir con el análisis de las situaciones a tener en cuenta
+Determinar la cantidad de centros de votación y la cantidad de mesas a abrir de manera de minimizar la distancia de los centros de votación al votante más lejano durante el día de elecciones.
 
 ### Hipótesis y Supuestos
 
