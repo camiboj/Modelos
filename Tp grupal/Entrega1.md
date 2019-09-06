@@ -12,7 +12,7 @@ Al realizarse la prueba piloto sobre un circuito electoral no se considerarán l
 
 El tipo de problema detectado es de asignación ya que consiste en encontrar la forma de asignar ciertos recursos disponibles (votantes) para la realización de determinadas tareas al menor costo, siendo el costo la distancia recorrida por cada votante al centro de votación. Se supone que cada recurso se destina a una sola tarea, es decir, cada votante vota en un solo centro de votación una única vez. Se puede pensar en forma gráfica como un grafo bipartito, expuesto en la _Figura 1_, en el que los puntos rojos serían los votantes y los azules los centros de votación.
 
-![Grafo bipartito del problema de asignación](/home/cecix/Documents/Modelos/grafo.jpg)
+![Grafo bipartito del problema de asignación](grafo.jpg)
 
 ### Objetivo
 
