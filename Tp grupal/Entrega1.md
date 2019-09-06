@@ -1,23 +1,13 @@
 ---
 geometry: margin=1in
+header-includes:  \usepackage[spanish]{babel}
 ---
 
-## Indice
-1. [Enunciado provisto](#id1)
-2. [Análisis de la situación problemática](#id2)
-3. [Objetivo](#id3)
-4. [Hipótesis y Supuestos](#id4)
-5. [Esbozo de Variables del Modelo](#id5)
-
-<a name="id1"></a>
-
-### Enunciado provisto
+## Enunciado provisto
 
 _Debido a las recurrentes quejas de los votantes por las distancias que deben recorrer desde sus domicilios hasta los lugares de votación, la Dirección Nacional Electoral desea rever la forma en que se asignan los ciudadanos a las mesas de votación. Se realizará una prueba piloto en un circuito electoral de la Ciudad de Buenos Aires._
 
-<a name="id2"></a>
-
-### Análisis de la situación problemática
+## Análisis de la situación problemática
 
 A modo de simplificación el modelo se limitará a asignar cada votante a un cupo de un centro de votación ya que una vez realizada esta tarea la división de votantes en mesas dentro de cada centro es trivial. El enfoque a seguir asigna votantes a centros de votación, es decir, a cada centro se le asignan los `n` votantes (siendo `n` la disponibilidad máxima del centro) más cercanos a él. De esta forma se asegura que cada votante se asigne al centro más cercano si es que el mismo no llenó su cupo con votantes aún más cercanos al mismo.
 
@@ -25,15 +15,11 @@ El tipo de problema detectado es de asignación ya que consiste en encontrar la 
 
 ![Grafo bipartito del problema de asignación](grafo.png){ width=300px }
 
-<a name="id3"></a>
-
-### Objetivo
+## Objetivo
 
 Determinar los votantes que votarán en cada centro de votación de manera de minimizar la distancia de los centros de votación a su votante más lejano durante el día de elecciones.
 
-<a name="id4"></a>
-
-### Hipótesis y Supuestos
+## Hipótesis y Supuestos
 
 - La votación debe realizarse en un único día para asegurar la transparencia electoral, por lo que la disponibilidad por centro es máxima y no puede reutilizarse.
 - No hay restricciones respecto al tiempo que tarda un votante en ir al centro de votación o en votar.
@@ -62,9 +48,7 @@ Determinar los votantes que votarán en cada centro de votación de manera de mi
 - Todos los votantes tienen la misma dificultad en recorrer la misma distancia. Por ejemplo: a un ciudadano A le es igual de difícil recorrer n metros que a ciudadano B, sin importar el valor de n.
 - Se consideran votantes a las personas de 16 a 18 años empadronadas y a todos los mayores de 18.
 
-<a name="id5"></a>
-
-### Esbozo de Variables del Modelo
+## Esbozo de Variables del Modelo
 
 - **Parámetros**
 
