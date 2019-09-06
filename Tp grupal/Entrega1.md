@@ -1,22 +1,37 @@
-### Enunciado provisto 
+---
+geometry: margin=1in
+---
+
+## Indice
+1. [Enunciado provisto](#id1)
+2. [Análisis de la situación problemática](#id2)
+3. [Objetivo](#id3)
+4. [Hipótesis y Supuestos](#id4)
+5. [Esbozo de Variables del Modelo](#id5)
+
+<a name="id1"></a>
+
+### Enunciado provisto
 
 _Debido a las recurrentes quejas de los votantes por las distancias que deben recorrer desde sus domicilios hasta los lugares de votación, la Dirección Nacional Electoral desea rever la forma en que se asignan los ciudadanos a las mesas de votación. Se realizará una prueba piloto en un circuito electoral de la Ciudad de Buenos Aires._
 
+<a name="id2"></a>
+
 ### Análisis de la situación problemática
 
-Se debe tomar como principal prioridad realizar un modelo que reduzca la distancia que deben recorrer los votantes hasta los centros de votación. Por otro lado, como se menciona la asignación de mesas se debe tener en cuenta también la organización de las mesas dentro de cada centro. A modo de simplificación el modelo se limitará a asignar votantes a los centros de votación ya que se considera que la división de votantes en mesas dentro de cada centro es trivial.
+A modo de simplificación el modelo se limitará a asignar cada votante a un cupo de un centro de votación ya que una vez realizada esta tarea la división de votantes en mesas dentro de cada centro es trivial. El enfoque a seguir asigna votantes a centros de votación, es decir, a cada centro se le asignan los `n` votantes (siendo `n` la disponibilidad máxima del centro) más cercanos a él. De esta forma se asegura que cada votante se asigne al centro más cercano si es que el mismo no llenó su cupo con votantes aún más cercanos al mismo.
 
-El enfoque a seguir asigna votantes a centros de votación y no centros de votación a votantes, es decir, a cada centro se le asignan los `n` votantes (siendo `n` la disponibilidad máxima del centro) más cercanos a él. De esta forma se asegura que cada votante se asigne al centro más cercano si es que el mismo no llenó su cupo con votantes aún más cercanos al mismo.
+El tipo de problema detectado es de asignación ya que consiste en encontrar la forma de asignar ciertos recursos disponibles (votantes) para la realización de determinadas tareas al menor costo (distancia de cada votante al centro de votación). Se puede pensar en forma gráfica como un grafo bipartito, expuesto en la _Figura 1_, en el que los puntos superiores serían los votantes y los inferiores los cupos asignados en los centros de votación.
 
-Al realizarse la prueba piloto sobre un circuito electoral no se considerarán los demás circuitos electorales y no se tendrá en cuenta la forma de división de los mismos.
+![Grafo bipartito del problema de asignación](grafo.png){ width=300px }
 
-El tipo de problema detectado es de asignación ya que consiste en encontrar la forma de asignar ciertos recursos disponibles (votantes) para la realización de determinadas tareas al menor costo, siendo el costo la distancia recorrida por cada votante al centro de votación. Se supone que cada recurso se destina a una sola tarea, es decir, cada votante vota en un solo centro de votación una única vez. Se puede pensar en forma gráfica como un grafo bipartito, expuesto en la _Figura 1_, en el que los puntos rojos serían los votantes y los azules los centros de votación.
-
-![Grafo bipartito del problema de asignación](grafo.jpg){ width=300px }
+<a name="id3"></a>
 
 ### Objetivo
 
-Determinar la cantidad de centros de votación y la cantidad de mesas a abrir de manera de minimizar la distancia de los centros de votación al votante más lejano durante el día de elecciones.
+Determinar los votantes que votarán en cada centro de votación de manera de minimizar la distancia de los centros de votación a su votante más lejano durante el día de elecciones.
+
+<a name="id4"></a>
 
 ### Hipótesis y Supuestos
 
@@ -33,6 +48,8 @@ Determinar la cantidad de centros de votación y la cantidad de mesas a abrir de
 - Se cuenta con medios mecánicos para que las personas discapacitadas puedan subir a un posible primer piso. 
 - Hay libertad de asignar cualquier apellido a cualquier centro de votación. No es necesario mantener el _status quo_.
 - Los votantes se mueven desde la puerta de su domicilio hasta la puerta del centro de votación sin ningún desvío. No se pueden tomar un colectivo que los deje a 2 cuadras.
+- Cada votante se asigna a un único centro de votación (ocupa un único cupo).
+- Los cupos de votantes no son reutilizables.
 - Todo votante deberá ser asignado a un centro de votación. 
 - Las elecciones son obligatorias.
 - Los centros de votación no tienen demanda mínima. 
@@ -45,5 +62,22 @@ Determinar la cantidad de centros de votación y la cantidad de mesas a abrir de
 - Todos los votantes tienen la misma dificultad en recorrer la misma distancia. Por ejemplo: a un ciudadano A le es igual de difícil recorrer n metros que a ciudadano B, sin importar el valor de n.
 - Se consideran votantes a las personas de 16 a 18 años empadronadas y a todos los mayores de 18.
 
+<a name="id5"></a>
+
 ### Esbozo de Variables del Modelo
 
+- **Parámetros**
+
+$D{i}{j}$ = distancia de cada votante al centro al que se asocia el cupo asignado $[m]$
+
+$C{k}$ = capacidad máxima de cupos del centro `k` $[votante/centro]$
+
+$V$ = cantidad de votantes $[votante]$
+
+$C$ = cantidad de centros $[centro]$
+
+- **Variables**
+
+$X{i}{j} = 1$ si el votante `i` es asignado al cupo `j`
+
+$X{i}{j} = 0$ si el votante `i` no es asignado al cupo `j`
