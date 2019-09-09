@@ -23,7 +23,7 @@ A modo de simplificación el modelo se limitará a asignar cada votante a un cup
 
 El tipo de problema detectado es de asignación ya que consiste en encontrar la forma de asignar ciertos recursos disponibles (votantes) para la realización de determinadas tareas al menor costo (distancia de cada votante al centro de votación). Se puede pensar en forma gráfica como un grafo bipartito, expuesto en la _Figura 1_, en el que los puntos superiores serían los votantes y los inferiores los cupos asignados en los centros de votación.
 
-![Grafo bipartito del problema de asignación](grafo.png){ width=300px }
+![Grafo bipartito del problema de asignación](grafo.png)
 
 <a name="id3"></a>
 
@@ -68,16 +68,16 @@ Determinar los votantes que votarán en cada centro de votación de manera de mi
 
 - **Parámetros**
 
-$D{i}{j}$ = distancia de cada votante al centro al que se asocia el cupo asignado $[m]$
+$$D{i}{j}$$ = distancia de cada votante al centro al que se asocia el cupo asignado $$[m]$$
 
-$C{k}$ = capacidad máxima de cupos del centro `k` $[votante/centro]$
+$$C{k}$$ = capacidad máxima de cupos del centro `k` $$[votante/centro]$$
 
-$V$ = cantidad de votantes $[votante]$
+$$V$$ = cantidad de votantes $$[votante]$$
 
-$C$ = cantidad de centros $[centro]$
+$$C$$ = cantidad de centros $$[centro]$$
 
 - **Variables**
 
-$X{i}{j} = 1$ si el votante `i` es asignado al cupo `j`
+$$X{i}{j} = 1$$ si el votante `i` es asignado al cupo `j`
 
-$X{i}{j} = 0$ si el votante `i` no es asignado al cupo `j`
+$$X{i}{j} = 0$$ si el votante `i` no es asignado al cupo `j`

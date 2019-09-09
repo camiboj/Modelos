@@ -5,7 +5,9 @@
 1. Los estampados del mismo tipo pero de diferenctes maquinas son indistinguibles
 2. No hay inflación
 3. Las fracciones de productos se venden a un precio porporcional al de la unidad
-4. Se vende todo lo que se produce
+4. El pedido se deb cumplir por ende se trata de una demanda mínima
+5. Se vende todo lo que se produce
+ 
 
 
 ### Objetivo
