@@ -45,3 +45,9 @@ $$R_{SC} (m/hs) * x_{r, sc} (hs)+ L_{SC} (m/hs) * x_{l, sc} (hs) \geq 9.000$$
 **Horas disponibles máximas de cada maquina:**
 $$x_{r, sn} (hs) + x_{r, sc} (hs) \leq 70 (maq) * 8 (hs/maq)$$
 $$x_{l, sn} (hs) + x_{l, sc} (hs) \leq 60 (maq) * 8 (hs/maq)$$
+
+
+### Resolución por software:
+![Figura 1](mod.png)
+
+![Figura 2](sol.png)
