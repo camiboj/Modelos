@@ -11,8 +11,6 @@
 ### Objetivo
 Detenrmina el programa de producción trimestral para minimizar costos en la variación de la produccion en un periodo de un año.
 
-### Constantes:
-
 ### Variables: 
 $T_i (unidades)$: la cantidad de unidades producidas en el trimestre $i$ 
 $T_0 (unidades)$: la cantidad de unidades producidas en el trimestre previo al periodo de analisis$i$ 
