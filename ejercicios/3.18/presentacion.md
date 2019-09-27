@@ -63,7 +63,12 @@ param H := 80;
 
 
 /* Definicion del funcional */
-minimize z: X1 * (C + D + E + F + G + H) + X2 * (C + D + E + F + G + H) + X3 * (A + B + G + H) + X4 * (A + B + G + H) + X5 * (A + B + H) + X6 * (A + B) + X7 * (A + B + C + D) + X8 * (A + B + C + D + E);
+minimize z: X1 * (C + D + E + F + G + H) 
++ X2 * (C + D + E + F + G + H) 
++ X3 * (A + B + G + H) + X4 * (A + B + G + H) 
++ X5 * (A + B + H) 
++ X6 * (A + B) 
++ X7 * (A + B + C + D) + X8 * (A + B + C + D + E);
 
 
 /* Relaciones de variables */
@@ -110,3 +115,5 @@ KKT.PB: max.abs.err = 0.00e+00 on row 0
 
 End of output
 ```
+
+La solución nos indica que la ambulancia deberá ser colocadaa en el distrito 6. Lo cual tiene mucho sentido ya que es la que menos ciudades tiene a distancia mayor a 3 minutos y que estás ciudades son justamente las 2 que menos ciudadanos tienen.
