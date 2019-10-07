@@ -28,18 +28,19 @@ Determinar los votantes que votarán en cada centro de votación de manera de mi
 - Los votantes tomarán el camino que consideren más corto para ir a votar.
 - Los votantes conocerán el camino más corto a su respectivo centro de votación.
 - Hay suficiente capacidad entre todos los centros dentro del circuito para recibir a todos los votantes de dicho circuito.
+- Las capacidades de los centros de votación son constantes conocidas y varían circuito a circuito.
 - El domicilio registrado de los votantes se mantiene por todo el proceso electoral.
 - Cada persona se encuentra en su domicilio legal al momento de salir hacia su centro de votación asignado.
 - La vuelta a casa del votante no es tenida en cuenta en el modelo planteado.
-- Se cuenta con medios mecánicos para que las personas discapacitadas puedan subir a un posible primer piso. 
+- No se tendrá en cuenta las condiciones físicas de los votantes.
 - Hay libertad de asignar cualquier apellido a cualquier centro de votación. No es necesario mantener el _status quo_.
 - Los votantes se mueven desde la puerta de su domicilio hasta la puerta del centro de votación sin ningún desvío. No se pueden tomar un colectivo que los deje a 2 cuadras.
 - Cada votante se asigna a un único centro de votación (ocupa un único cupo).
 - Los cupos de votantes no son reutilizables.
 - Todo votante deberá ser asignado a un centro de votación. 
 - Las elecciones son obligatorias.
-- Los centros de votación no tienen demanda mínima. 
-- Podrá abrirse un centro para sólo una persona.
+- Las mesas de votación requieren de una cantidad mínima para ser abiertas.
+- Los centros de votación requieren de una cantidad mínima de mesas para ser abiertos.
 - No hay restricciones respecto al presupuesto asignado a la votación.
 - No hay restricciones respecto al costo de traslado de un votante al centro de votación.
 - Todos los centros cuentan con una disponibilidad máxima. 
@@ -47,6 +48,8 @@ Determinar los votantes que votarán en cada centro de votación de manera de mi
 - Los votantes siempre tendrán un medio de transporte para ir a votar.
 - Todos los votantes tienen la misma dificultad en recorrer la misma distancia. Por ejemplo: a un ciudadano A le es igual de difícil recorrer n metros que a ciudadano B, sin importar el valor de n.
 - Se consideran votantes a las personas de 16 a 18 años empadronadas y a todos los mayores de 18.
+- La métrica utilizada para calcular las distancias es la de Vincenty.
+- Las unidad de medición para las distancias es de kilómetros. 
 
 ## Esbozo de Variables del Modelo
 
