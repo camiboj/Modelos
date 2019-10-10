@@ -1,45 +1,39 @@
-set D dimen 2;
+set DISTANCIAS dimen 2;
 /* id_votante, id_centro, distancia */
 
-set V;
+set VOTANTES;
 /* id_votante */
 
-set C;
+set CENTROS;
 /* id_centro */
 
-set K;
+set CAPACIDADES;
 /* capacidad */
 
-param a{v in V};
-/* leo id_votante */
-
-param b{c in C};
-/* leo id_centro */
-
-param d{v in V, c in C};
+param d{v in VOTANTES, c in CENTROS}; /* par votante-centro */
 /* distancia en kilometros */
 
-param k{v in V};
+param k{v in CAPACIDADES};
 /* capacidad de cada centro */
 
 table tab_centros IN "CSV" "centros_reducido.csv" :
-  C <- [id];
+  CENTROS <- [id];
 
 table tab_votantes IN "CSV" "votantes_reducido.csv" :
-  V <- [id];
+  VOTANTES <- [id];
 
 table tab_distancias IN "CSV" "test.csv" :
-  D <- [id_votante, id_centro], d ~ distancia;
+  DISTANCIAS <- [id_votante, id_centro], d ~ distancia;
 
 table tap_capacidad IN "CSV" "centros_reducido_cap.csv" :
-   K <- [id], k ~ cap;
+   CAPACIDADES <- [id], k ~ cap;
 
-for{(i_1, i_2) in D} {
+for{(i_1, i_2) in DISTANCIAS} {
     printf "%s,%s\n", i_1, i_2;
     printf "%d\n", d[i_1, i_2]; 
 }
 
-for{i in K} {
+for{i in CAPACIDADES} {
    printf "Ahora la capacidad: %d\n", k[i];
 }
 
