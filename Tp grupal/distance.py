@@ -8,30 +8,33 @@ LATITUD = 1
 LONGITUD = 2
 
 def procesarDistancias():
-    posiciones_centros = []
-    cantidad_centros = 0
-    header = ["id_votante"]
+    header = ["id_votante", "id_centro", "distancia"]
     with open(RUTA_MERGE, 'w') as merge:
         with open(RUTA_VOTANTES) as votantes:
             with open(RUTA_CENTROS) as centros:
                 votantes_reader = csv.reader(votantes, delimiter=',')
                 centros_reader = csv.reader(centros, delimiter=',')
-                for centro in centros_reader:
-                    posiciones_centros.append((float(centro[LATITUD]), float(centro[LONGITUD])))
-                    cantidad_centros += 1
-                    header.append(f"centro_{cantidad_centros}")
-                
                 merge_csv = csv.writer(merge)
                 merge_csv.writerow(header)
-
+                header_votante = True
+                header_centro = True
                 for votante in votantes_reader:
-                    distancias = []
-                    distancias.append(votante[0])
-                    posicion_votante = (float(votante[LATITUD]), float(votante[LONGITUD]))
-                    for posicion_centro in posiciones_centros:
+                    if header_votante:
+                        header_votante = False
+                        continue
+                    centros.seek(0)
+                    for centro in centros_reader:
+                        if header_centro:
+                            header_centro = False
+                            continue
+                        distancias = []
+                        distancias.append(votante[0]) #id_votante
+                        distancias.append(centro[0]) #id_centro
+                        posicion_votante = (float(votante[LATITUD]), float(votante[LONGITUD]))
+                        posicion_centro = (float(centro[LATITUD]), float(centro[LONGITUD]))
                         distancia = vincenty(posicion_centro, posicion_votante)
-                        distancias.append(distancia)
-                    merge_csv.writerow(distancias)
+                        distancias.append(distancia) #distancia
+                        merge_csv.writerow(distancias)
+                    header_centro = True
                     
-        
 procesarDistancias()
