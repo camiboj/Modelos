@@ -1,15 +1,46 @@
-set I, dimen 12;
-param  x{I};
-table tin IN "CSV" "constantes_reducido.csv" :
-I <- [id_votante,centro_1,centro_2,centro_3,centro_4,centro_5,centro_6,centro_7,centro_8,centro_9,centro_10,centro_11];
-printf "Number of values: %d\n", card(I);
+set D dimen 2;
+/* id_votante, id_centro, distancia */
 
-#Centros
-set C := setof{(i_1, i_2, i_3, i_4, i_5, i_6, i_7, i_8, i_9, i_10, i_11, i_12) in I} (i_2, i_3, i_4, i_5, i_6, i_7, i_8, i_9, i_10, i_11, i_12);
+set V;
+/* id_votante */
 
-for{(i_1, i_2, i_3, i_4, i_5, i_6, i_7, i_8, i_9, i_10, i_11) in C} {
-    printf "%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s", i_1, i_2, i_3, i_4, i_5, i_6, i_7, i_8, i_9, i_10, i_11;
-    printf "\n";
+set C;
+/* id_centro */
+
+set K;
+/* capacidad */
+
+param a{v in V};
+/* leo id_votante */
+
+param b{c in C};
+/* leo id_centro */
+
+param d{v in V, c in C};
+/* distancia en kilometros */
+
+param k{v in V};
+/* capacidad de cada centro */
+
+table tab_centros IN "CSV" "centros_reducido.csv" :
+  C <- [id];
+
+table tab_votantes IN "CSV" "votantes_reducido.csv" :
+  V <- [id];
+
+table tab_distancias IN "CSV" "test.csv" :
+  D <- [id_votante, id_centro], d ~ distancia;
+
+table tap_capacidad IN "CSV" "centros_reducido_cap.csv" :
+   K <- [id], k ~ cap;
+
+for{(i_1, i_2) in D} {
+    printf "%s,%s\n", i_1, i_2;
+    printf "%d\n", d[i_1, i_2]; 
+}
+
+for{i in K} {
+   printf "Ahora la capacidad: %d\n", k[i];
 }
 
 end;
