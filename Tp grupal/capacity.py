@@ -1,7 +1,7 @@
 import csv
 
-RUTA_CENTROS = "centros_reducido.csv"
-RUTA_CAPACIDAD = "capacidades_reducido.csv"
+RUTA_CENTROS = "centros.csv"
+RUTA_CAPACIDAD = "capacidades.csv"
 LATITUD = 1
 LONGITUD = 2
 

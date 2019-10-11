@@ -1,9 +1,9 @@
 from vincenty import vincenty
 import csv
 
-RUTA_VOTANTES = "votantes_reducido.csv"
-RUTA_CENTROS = "centros_reducido.csv"
-RUTA_MERGE = "constantes_reducido.csv"
+RUTA_VOTANTES = "votantes.csv"
+RUTA_CENTROS = "centros.csv"
+RUTA_MERGE = "constantes.csv"
 LATITUD = 1
 LONGITUD = 2
 

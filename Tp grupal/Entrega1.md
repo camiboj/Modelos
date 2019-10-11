@@ -39,7 +39,7 @@ Determinar los votantes que votarán en cada centro de votación de manera de mi
 - Los cupos de votantes no son reutilizables.
 - Todo votante deberá ser asignado a un centro de votación. 
 - Las elecciones son obligatorias.
-- Las mesas de votación requieren de una cantidad mínima para ser abiertas.
+- No se tomará en cuenta la asignación de votantes a sus respectivas mesas sino a su centro de votación.
 - Los centros de votación requieren de una cantidad mínima de mesas para ser abiertos.
 - No hay restricciones respecto al presupuesto asignado a la votación.
 - No hay restricciones respecto al costo de traslado de un votante al centro de votación.
@@ -51,13 +51,13 @@ Determinar los votantes que votarán en cada centro de votación de manera de mi
 - La métrica utilizada para calcular las distancias es la de Vincenty.
 - Las unidad de medición para las distancias es de kilómetros. 
 
-## Esbozo de Variables del Modelo
+## Variables
 
 - **Parámetros**
 
-$$D{i}{j}$$ = distancia de cada votante al centro al que se asocia el cupo asignado $$[m]$$
+$$D{i}{j}$$ = distancia de cada votante al centro al que se asocia $$[km]$$
 
-$$C{k}$$ = capacidad máxima de cupos del centro `k` $$[votante/centro]$$
+$$C{k}$$ = capacidad máxima de votantes del centro `k` $$[votante/centro]$$
 
 $$V$$ = cantidad de votantes $$[votante]$$
 
@@ -65,6 +65,14 @@ $$C$$ = cantidad de centros $$[centro]$$
 
 - **Variables**
 
-$$X{i}{j} = 1$$ si el votante `i` es asignado al cupo `j`
+$$Y{i}{j} = \{1$$ si el votante `i` es asignado al cupo `j`, 0 sino}
 
-$$X{i}{j} = 0$$ si el votante `i` no es asignado al cupo `j`
+## Restricciones
+
+## Funcional
+
+## Modelo 
+
+## Resultados
+
+
