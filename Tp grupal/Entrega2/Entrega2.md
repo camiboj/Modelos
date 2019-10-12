@@ -247,13 +247,23 @@ Agrego el grande en el próximo commit
 
 ## Análisis de los resultados
 
-En un primer lugar, se eligió el funcional utilizado para que cumpla los dos factores requeridos: que sea óptimo y que sea equitativo. Para que sea óptimo se decidió minimizar la distancia recorrida por un votante y para que sea equitativo se decidió minimizar la distancia máxima recorrida por un votante. De esta manera se consideró que se podían cumplir ambos criterios con la minimización de la suma del promedio y del máximo mencionados.
+En un primer lugar, se eligió el funcional utilizado para que cumpla los dos factores requeridos: que sea óptimo y que sea equitativo. Para que sea óptimo se decidió minimizar la distancia recorrida por un votante y para que sea equitativo se decidió minimizar la distancia máxima recorrida. De esta manera se consideró que se podían cumplir ambos criterios con la minimización de la suma del promedio y del máximo mencionados.
 
-Agregar gráficos y resultados obtenidos.
+Una vez obtenido el resultado que nos arrojó nuestro modelo se hizo un [analisis de datos](https://github.com/camiboj/Modelos/blob/master/Tp%20grupal/Entrega2/generador_graficos.ipynb) del mismo. 
 
-Cosas a agregar:
+Para comenzar de generó el siguiente gráficó plasmando a los votantes (puntos) y los centros (cruces) con respecto a sus coordenadas. El color  utilizado para dibujar cada elemento representa la asignación de cada votante a cada centro.
+![grafico 1](centros_votantes.jpg)
+A simple vista pareciera que el modelo cumple con lo pedido. Sin embargo el analisis no se termina ahí.
 
-- distancia máxima recorrida por un votante
-- distancia máxima de cada centro
-- distancia promedio
+A continuación se verificó qué tan justa era la solución conseguida. Para ello se analizó la diferencia entre el votante más lejano y más cercanó asignados a cada centro: 
+![grafico 2](max_vs_min-reducido.png)
+Fue fácil entender que tal vez la asignación a los centros 1, 8 y 9 no eran del todo justas. Por lo tanto el siguiente paso fue entender qué pasaba en estos 3 centros. La primer idea que vino a nuestras mentes fue "_tal vez estos centos se corresponden con los centros más occidentales_" (mirar primer imagen). Es decir, se pensó que el votante más lejano a cada centro está más lejos aún del resto de los centros (o mayoría de ellos). Para verificar esta teoría se tomó el votante más lejano de cada centro y se graficó la distancia que tiene el mismo al resto de los centros (representado por barras) y la distancia que tendra que recorrer para ir al centro que fue asignado (linea).
+Votante asignado al centro 1 que más lejos se encuentra del mismo:
+![grafico 3](max1-reducido.png)
+Votante asignado al centro 8 que más lejos se encuentra del mismo:
+![grafico 4](max8-reducido.png)
 
+Votante asignado al centro 9 que más lejos se encuentra del mismo:
+![grafico 5](max9-reducido.png)
+
+Luego de analizar estos tres gráficos se llegó a una conclusión. Por un lado suena injusto que haya votantes tan lejanos a su centro de votación en coparación a otros votantes de su mismo centro. Por el otro, si estos votantes fueran asignados a otro centro sería mayor la distancia. Estonces, se entiende que fueron asignados de una forma justa.
