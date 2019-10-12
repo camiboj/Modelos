@@ -20,7 +20,7 @@ param d{v in VOTANTES, c in CENTROS}; /* par votante-centro */
 param k{v in CENTROS};
 /* capacidad máxima de cada centro */
 
-param CAP_MIN := 1; 
+param CAP_MIN := 30; 
 
 param M := 10000000;
 
@@ -28,16 +28,16 @@ param m := 0.000001;
 
 /* Lecturas de CSV */
 
-table tab_centros IN "CSV" "test_centros.csv" :
+table tab_centros IN "CSV" "centros_reducido.csv" :
   CENTROS <- [id];
 
-table tab_votantes IN "CSV" "test_votantes.csv" :
+table tab_votantes IN "CSV" "votantes_reducido.csv" :
   VOTANTES <- [id];
 
-table tab_distancias IN "CSV" "test_distancia.csv" :
+table tab_distancias IN "CSV" "constantes_reducido.csv" :
   DISTANCIAS <- [id_votante, id_centro], d ~ distancia;
 
-table tap_capacidad IN "CSV" "test_capacidad.csv" :
+table tap_capacidad IN "CSV" "capacidades_reducido.csv" :
    CAPACIDADES <- [id], k ~ cap;
 
 /* Definición de variables */
@@ -45,14 +45,6 @@ table tap_capacidad IN "CSV" "test_capacidad.csv" :
 var Y{i in VOTANTES, j in CENTROS} >= 0, binary;
 
 var YC{j in CENTROS} >= 0, binary;
-
-var YMAX{i in VOTANTES, j in CENTROS} >= 0, binary;
-
-var YMIN{i in VOTANTES, j in CENTROS} >= 0, binary;
-
-var MAX_CENTRO{j in CENTROS} >= 0;
-
-var MIN_CENTRO{j in CENTROS} >= 0;
 
 var MAX >= 0;
 
@@ -77,17 +69,5 @@ s.t. maxDistancia{i in VOTANTES, j in CENTROS}: MAX >= Y[i,j] * d[i,j];
 
 /* Se obtiene la cantidad de votantes asignados a cada centro */
 s.t. centroAsignacion{j in CENTROS}: sum{i in VOTANTES} Y[i,j] = CANT_CENTRO[j];
-
-/* Se obtiene la maxima distancia que recorre un votante asignado a un centro */
-s.t. maxCentro1{i in VOTANTES, j in CENTROS}: MAX_CENTRO[j] >= Y[i,j] * d[i,j]; 
-s.t. maxCentro2{i in VOTANTES, j in CENTROS}: MAX_CENTRO[j] <= Y[i,j] * d[i,j] + M * (1 - YMAX[i,j]);
-s.t. bivalentesMaximo{j in CENTROS}: sum{i in VOTANTES} YMAX[i,j] <= 1;
-s.t. bivalentesRelacion{i in VOTANTES, j in CENTROS}: YMAX[i,j] <= Y[i,j];
-
-/* Se obtiene la minima distancia que recorre un votante asignado a un centro */
-s.t. minCentro1{i in VOTANTES, j in CENTROS}: MIN_CENTRO[j] <= Y[i,j] * d[i,j]; 
-s.t. minCentro2{i in VOTANTES, j in CENTROS}: MIN_CENTRO[j] >= Y[i,j] * d[i,j] - (1 - YMIN[i,j])*M;
-s.t. bivalentesMinimo{j in CENTROS}: sum{i in VOTANTES} YMIN[i,j] <= 1;
-s.t. bivalentesMinimoRelacion{i in VOTANTES, j in CENTROS}: YMIN[i,j] <= Y[i,j];
 
 end;
