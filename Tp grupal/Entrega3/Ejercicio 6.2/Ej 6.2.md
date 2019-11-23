@@ -1,6 +1,4 @@
 ---
-author: Camila Bojman - Cecilia Hortas
-date: 101055 - 100687
 title: Ejercicio 6.2
 ---
 
