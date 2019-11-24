@@ -136,3 +136,14 @@ A primera vista podría suponerse que las asignaciones a los centros 1, 8 y 9 no
 \newpage
 
 Luego de analizar estos cuatro gráficos se llegó a una conclusión. Por un lado pareciera inequitativo que halla votantes tan lejanos a su centro de votación en comparación a otros votantes de su mismo centro. Por el otro, si estos votantes fueran asignados a otro centro sería mayor la distancia. Estonces, se entiende que fueron asignados de una forma justa y óptima. Sin embargo, para el caso del último gráfico pareciera que podría haber sigo asignado al centro 1 u 8. Sin embargo, si se observa la Figura 5 se puede observar que dichos centros llegaron a su capacidad máxima, por lo que la heurística falló en la equidad para este votante.
+
+En último lugar, resulta interesante analizar la distancia recorrida por cada votante tanto en la heurística como el modelo, para poder realizar una comparación a nivel general de la optimalidad y la equidad de la solución. Se grafica entonces la distancia recorrida en el eje y para cada votante representado en el eje x.
+
+![Distancia recorrida por cada votante en el modelo](graficos/histograma_modelo.png){ width=350px }
+
+![Distancia recorrida por cada votante en la heurística](graficos/histograma_heuristica.png){ width=350px }
+
+\newpage
+
+Se puede observar que la forma del gráfico es similar en ambos alcances. Una diferencia a remarcar es que los votantes cuya distancia al centro asignado se grafica en la parte izquierda, es decir, los que menos recorren, son perjudicados en la heurística porque deben recorrer una distancia mayor. Esto es lógico debido a la heurística planteada ya que es probable que los centros a los que estén asignados no cumplan con la capacidad mínima y hayan tenido que ser reasignados. Así mismo, los votantes representados en la parte derecha del gráfico parecen tener que recorrer la misma distancia que en el modelo. 
+
