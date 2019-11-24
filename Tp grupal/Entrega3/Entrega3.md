@@ -11,7 +11,7 @@ _Debido a las recurrentes quejas de los votantes por las distancias que deben re
 
 El tipo de problema detectado es de asignación ya que consiste en encontrar la forma de asignar ciertos recursos disponibles (votantes) para la realización de determinadas tareas al menor costo (distancia de cada votante al centro de votación). Se puede pensar en forma gráfica como un grafo bipartito, expuesto en la _Figura 1_, en el que los puntos superiores serían los votantes y los inferiores los cupos asignados en los centros de votación.
 
-![Grafo bipartito del problema de asignación](graficos/grafo.png){ width=250px }
+![Grafo bipartito del problema de asignación](graficos/grafo.png){ width=350px }
 
 ## Objetivo
 
@@ -101,7 +101,7 @@ Por el mismo motivo mencionado anteriormente es que algunos votantes son asignad
 
 \newpage
 
-A continuación se verificó que las restricciones basicas estén cumplidas tanto para el modelo como para la heurística. Para lograrlo se graficó la cantidad de votantes por centro (violeta), la capacidad máxima (rojo) y la cantidad de gente mínima para abrir el centro (verde). Como se puede ver en los gráficos a continuación, se verifica que todos los centros contienen una cantidad de gente asignada mayor a la capacidad mínima del centro y menor a la capacidad máxima tanto en la heurística como en el modelo. Así mismo, se verifica que la cantidad de centros abiertos con la heurística (11) es menor a la de los abiertos con el modelo (20). Algo interesante a destacar es que con la heurística se abren centros que se abren también con el modelo y a su vez no se abre ningún centro que en la solución óptima se halla descartado. Por lo tanto, se asignan más votantes a esos centros en la heurística que el modelo, lo cual resulta evidente ya que todos los votantes deben ser asignados.
+A continuación se verificó que las restricciones basicas estén cumplidas tanto para el modelo como para la heurística. Para lograrlo se graficó la cantidad de votantes por centro (violeta), la capacidad máxima (rojo) y la cantidad de gente mínima para abrir el centro (verde). Como se puede ver en los gráficos a continuación, se verifica que todos los centros contienen una cantidad de gente asignada mayor a la capacidad mínima del centro y menor a la capacidad máxima tanto en la heurística como en el modelo. Así mismo, se verifica que la cantidad de centros abiertos con la heurística (11) es menor a la de los abiertos con el modelo (20). Algo interesante a destacar es que con la heurística se abren centros que se abren también con el modelo y a su vez no se abre ningún centro que en la solución óptima se halla descartado. Por lo tanto, la cantidad de votantes asignados a esos centros es mayor en la heurística que el modelo.
 
 ![Capacidad de los centros de votación y votantes asignados en el modelo](graficos/cant_por_centro_modelo.png){ width=350px }
 
@@ -109,18 +109,30 @@ A continuación se verificó que las restricciones basicas estén cumplidas tant
 
 \newpage
 
-Además, se evaluó la equitatividad de la solución conseguida. Para ello se analizó la diferencia entre el votante más lejano y más cercano asignados a cada centro: 
+Posteriormente se procedió a evaluar la equitatividad de la solución conseguida para ambas alternativas. Para ello se analizó la diferencia entre el votante más lejano y más cercano asignados a cada centro: 
 
-![Equitatividad de la solución obtenida](graficos/max_vs_min_modelo.png){ width=250px }
+![Equitatividad de la solución obtenida en el modelo](graficos/max_vs_min_modelo.png){ width=350px }
 
-A primera vista podría suponerse que las asignaciones a los centros 1, 8 y 9 no eran del todo justas. Por lo tanto el siguiente paso fue intentar decifrar cómo se realizaba la asignación en estos 3 centros para los votantes más lejanos. Se pensó que el votante más lejano a cada centro está más lejos aún del resto de los centros (o la mayoría de ellos). Para verificar esta teoría se tomó el votante más lejano de cada centro y se graficó la distancia que tiene el mismo al resto de los centros (representada por barras) y la distancia que tendrá que recorrer para ir al centro que fue asignado (linea).
-
-![Votante asignado al centro 1 que más lejos se encuentra del mismo](graficos/max1_modelo.png){ width=250px }
-
-![Votante asignado al centro 8 que más lejos se encuentra del mismo](graficos/max8_modelo.png){ width=250px }
-
-![Votante asignado al centro 9 que más lejos se encuentra del mismo](graficos/max9_modelo.png){ width=250px }
+![Equitatividad de la solución obtenida en la heurística](graficos/max_vs_min_heuristica.png){ width=350px }
 
 \newpage
 
-Luego de analizar estos tres gráficos se llegó a una conclusión. Por un lado pareciera inequitativo que halla votantes tan lejanos a su centro de votación en comparación a otros votantes de su mismo centro. Por el otro, si estos votantes fueran asignados a otro centro sería mayor la distancia. Estonces, se entiende que fueron asignados de una forma justa y óptima.
+A primera vista podría suponerse que las asignaciones a los centros 1, 8 y 9 no eran del todo justas (tanto para el modelo como para la heurística). Pero se agrega en la heurística una asignación aparentemente injusta para el centro 14. Por lo tanto el siguiente paso fue intentar decifrar cómo se realizaba la asignación en estos 4 centros para los votantes más lejanos. Se pensó que el votante más lejano a cada centro está más lejos aún del resto de los centros (o la mayoría de ellos). Para verificar esta teoría se tomó el votante más lejano de cada centro y se graficó la distancia que tiene el mismo al resto de los centros (representada por barras) y la distancia que tendrá que recorrer para ir al centro que fue asignado (linea).
+
+![Votante asignado al centro 1 que más lejos se encuentra del mismo en el modelo](graficos/max1_modelo.png){ width=350px }
+
+![Votante asignado al centro 1 que más lejos se encuentra del mismo en la heurística](graficos/max1_heuristica.png){ width=350px }
+
+![Votante asignado al centro 8 que más lejos se encuentra del mismo en el modelo](graficos/max8_modelo.png){ width=350px }
+
+![Votante asignado al centro 8 que más lejos se encuentra del mismo en la heurística](graficos/max8_heuristica.png){ width=350px }
+
+![Votante asignado al centro 9 que más lejos se encuentra del mismo en el modelo](graficos/max9_modelo.png){ width=350px }
+
+![Votante asignado al centro 9 que más lejos se encuentra del mismo en la heurística](graficos/max9_heuristica.png){ width=350px }
+
+![Votante asignado al centro 14 que más lejos se encuentra del mismo en la heurística](graficos/max14_heuristica.png){ width=350px }
+
+\newpage
+
+Luego de analizar estos cuatro gráficos se llegó a una conclusión. Por un lado pareciera inequitativo que halla votantes tan lejanos a su centro de votación en comparación a otros votantes de su mismo centro. Por el otro, si estos votantes fueran asignados a otro centro sería mayor la distancia. Estonces, se entiende que fueron asignados de una forma justa y óptima. Sin embargo, para el caso del último gráfico pareciera que podría haber sigo asignado al centro 1 u 8. Sin embargo, si se observa la Figura 5 se puede observar que dichos centros llegaron a su capacidad máxima, por lo que la heurística falló en la equidad para este votante.
